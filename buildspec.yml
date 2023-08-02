@@ -7,7 +7,7 @@ phases:
   pre_build:
     commands:
       # Install Maven and other dependencies
-      - apt-get install -y maven
+      - yum install -y maven
       # Add any other setup or configuration commands as needed
   build:
     commands:
