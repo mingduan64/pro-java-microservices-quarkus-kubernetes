@@ -1,0 +1,32 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk11
+  pre_build:
+    commands:
+      # Install Maven and other dependencies
+      - apt-get install -y maven
+      # Add any other setup or configuration commands as needed
+  build:
+    commands:
+      # Build the Quarkus application
+      - mvn clean package -DskipTests
+  post_build:
+    commands:
+      - echo 'Build successful'
+      # Deploy the built JAR file to AWS Elastic Beanstalk
+#      - aws elasticbeanstalk create-application-version \
+#        --application-name YourApplicationName \
+#        --version-label YourVersionLabel \
+#        --source-bundle S3Bucket="YourBucketName",S3Key="target/your-quarkus-app.jar" \
+#        --auto-create-application
+
+artifacts:
+  files:
+    - quarkushop-commons/target/quarkushop-commons-1.0-SNAPSHOT.jar
+    - quarkushop-customer/target/quarkushop-customer-1.0.0-SNAPSHOT.jar
+    - quarkushop-order/target/quarkushop-order-1.0.0-SNAPSHOT.jar
+    - quarkushop-product/target/quarkushop-product-1.0.0-SNAPSHOT.jar
+    - quarkushop-user/target/quarkushop-user-1.0.0-SNAPSHOT.jar
