@@ -16,6 +16,7 @@ phases:
   post_build:
     commands:
       - echo 'Build successful'
+
       # Deploy the built JAR file to AWS Elastic Beanstalk
 #      - aws elasticbeanstalk create-application-version \
 #        --application-name YourApplicationName \
