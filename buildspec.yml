@@ -31,3 +31,4 @@ artifacts:
     - quarkushop-order/target/quarkushop-order-1.0.0-SNAPSHOT.jar
     - quarkushop-product/target/quarkushop-product-1.0.0-SNAPSHOT.jar
     - quarkushop-user/target/quarkushop-user-1.0.0-SNAPSHOT.jar
+
