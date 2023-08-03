@@ -13,11 +13,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <quarkus.version>1.13.4.Final</quarkus.version>
         <testcontainers.version>1.15.3</testcontainers.version>
-        <lombok.version>1.18.16</lombok.version>
+        <lombok.version>1.18.28</lombok.version>
         <jboss.jaxrs.version>2.0.1.Final</jboss.jaxrs.version>
         <javax.validation.version>2.0.1.Final</javax.validation.version>
     </properties>
