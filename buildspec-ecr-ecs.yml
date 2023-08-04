@@ -13,7 +13,7 @@ phases:
     commands:
       - ls
       # Build and push quarkusshop-common
-      - cd quarkushop-common
+      - cd ../quarkushop-common
       - docker build -t YOUR_ECR_REPO_URL_COMMON:latest .
       - docker push YOUR_ECR_REPO_URL_COMMON:latest
 
