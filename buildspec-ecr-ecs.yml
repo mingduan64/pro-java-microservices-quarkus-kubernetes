@@ -1,0 +1,43 @@
+version: 0.2
+env:
+  variables:
+    BUILD_VERSION: "1.0.0"
+    AWS_REGION: "ap-southeast-1"
+
+phases:
+  pre_build:
+    commands:
+      - $(aws ecr get-login --no-include-email --region YOUR_AWS_REGION)
+
+  build:
+    commands:
+      # Build and push quarkusshop-common
+      - cd quarkushop-common
+      - docker build -t YOUR_ECR_REPO_URL_COMMON:latest .
+      - docker push YOUR_ECR_REPO_URL_COMMON:latest
+
+      # Build and push quarkushop-customer
+      - cd ../quarkushop-customer
+      - docker build -t YOUR_ECR_REPO_URL_CUSTOMER:latest .
+      - docker push YOUR_ECR_REPO_URL_CUSTOMER:latest
+
+      # Build and push quarkusshop-order
+      - cd ../quarkushop-order
+      - docker build -t YOUR_ECR_REPO_URL_ORDER:latest .
+      - docker push YOUR_ECR_REPO_URL_ORDER:latest
+
+      # Build and push quarkusshop-product
+      - cd ../quarkushop-product
+      - docker build -t YOUR_ECR_REPO_URL_PRODUCT:latest .
+      - docker push YOUR_ECR_REPO_URL_PRODUCT:latest
+
+      # Build and push quarkusshop-user
+      - cd ../quarkushop-user
+      - docker build -t YOUR_ECR_REPO_URL_USER:latest .
+      - docker push YOUR_ECR_REPO_URL_USER:latest
+  post_build:
+    commands:
+      # Deploy to ECS
+      - bash deploy-ecs.sh
+artifacts:
+  files: []

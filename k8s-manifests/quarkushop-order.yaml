@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quarkushop-order
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quarkushop-order
+  template:
+    metadata:
+      labels:
+        app: quarkushop-order
+    spec:
+      containers:
+        - name: quarkushop-order
+          image: YOUR_ECR_REGISTRY_URL/quarkushop-order:latest
+          ports:
+            - containerPort: 8080
