@@ -25,7 +25,7 @@ phases:
 
       # Build and push quarkushop-customer
       - cd quarkushop-customer
-      - mv ./quarkushop-customer/src/main/docker/Dockerfile.native ./quarkushop-customer/Dockerfile
+      - mv ./src/main/docker/Dockerfile.native ./Dockerfile
       - ls
       - docker --help
       - docker build -t $ECR_REPO/quarkushop-customer:latest .
