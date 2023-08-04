@@ -12,30 +12,14 @@ phases:
   build:
     commands:
       - ls
-      # Build and push quarkusshop-common
-      - cd quarkushop-commons
-      - docker build -t YOUR_ECR_REPO_URL_COMMON:latest .
-      - docker push YOUR_ECR_REPO_URL_COMMON:latest
 
-      # Build and push quarkushop-customer
-      - cd ../quarkushop-customer
-      - docker build -t YOUR_ECR_REPO_URL_CUSTOMER:latest .
-      - docker push YOUR_ECR_REPO_URL_CUSTOMER:latest
-
-      # Build and push quarkusshop-order
-      - cd ../quarkushop-order
-      - docker build -t YOUR_ECR_REPO_URL_ORDER:latest .
-      - docker push YOUR_ECR_REPO_URL_ORDER:latest
-
-      # Build and push quarkusshop-product
-      - cd ../quarkushop-product
-      - docker build -t YOUR_ECR_REPO_URL_PRODUCT:latest .
-      - docker push YOUR_ECR_REPO_URL_PRODUCT:latest
-
-      # Build and push quarkusshop-user
-      - cd ../quarkushop-user
-      - docker build -t YOUR_ECR_REPO_URL_USER:latest .
-      - docker push YOUR_ECR_REPO_URL_USER:latest
+      # Build and push each app using app_name variable
+      - for app_name in quarkushop-commons quarkushop-customer quarkushop-order quarkushop-product quarkushop-user; do
+          cd "$app_name";
+          docker build -t "$app_name:latest" .;
+          docker push "$app_name:latest";
+          cd ..;
+        done
   post_build:
     commands:
       # Deploy to ECS
