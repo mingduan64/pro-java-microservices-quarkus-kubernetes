@@ -5,7 +5,7 @@ env:
     AWS_REGION: "ap-southeast-1"
     ECR_REPO: "576694912472.dkr.ecr.ap-southeast-1.amazonaws.com"
     #    DOCKERFILE_commons: "./quarkushop-commons/Dockerfile"
-    DOCKERFILE_customer: "./src/main/docker/Dockerfile.native"
+    DOCKERFILE_customer: "./quarkushop-customer/src/main/docker/Dockerfile.native"
     DOCKERFILE_order: "./quarkushop-order/src/main/docker/Dockerfile.native"
     DOCKERFILE_product: "./quarkushop-product/src/main/docker/Dockerfile.native"
     DOCKERFILE_user: "./quarkushop-user/src/main/docker/Dockerfile.native"
@@ -25,7 +25,7 @@ phases:
 
       # Build and push quarkushop-customer
       - cd quarkushop-customer
-      - mv Dockerfile.native Dockerfile
+      - mv ./quarkushop-customer/src/main/docker/Dockerfile.native ./quarkushop-customer/Dockerfile
       - ls
       - docker --help
       - docker build -t $ECR_REPO/quarkushop-customer:latest .
