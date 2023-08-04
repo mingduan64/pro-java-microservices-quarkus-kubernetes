@@ -5,7 +5,7 @@ env:
     AWS_REGION: "ap-southeast-1"
     ECR_REPO: "576694912472.dkr.ecr.ap-southeast-1.amazonaws.com"
     #    DOCKERFILE_commons: "./quarkushop-commons/Dockerfile"
-    DOCKERFILE_customer: "./quarkushop-customer/src/main/docker/Dockerfile.native"
+    DOCKERFILE_customer: "./src/main/docker/Dockerfile.native"
     DOCKERFILE_order: "./quarkushop-order/src/main/docker/Dockerfile.native"
     DOCKERFILE_product: "./quarkushop-product/src/main/docker/Dockerfile.native"
     DOCKERFILE_user: "./quarkushop-user/src/main/docker/Dockerfile.native"
