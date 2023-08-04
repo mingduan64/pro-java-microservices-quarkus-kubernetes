@@ -24,7 +24,7 @@ phases:
 #      - docker push YOUR_ECR_REPO_URL_COMMON:latest
 
       # Build and push quarkushop-customer
-      - cd quarkushop-customer/src/main/docker
+      - cd quarkushop-customer
       - mv Dockerfile.native Dockerfile
       - ls
       - docker --help
