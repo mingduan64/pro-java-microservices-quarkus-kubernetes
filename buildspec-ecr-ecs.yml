@@ -18,22 +18,33 @@ phases:
   build:
     commands:
       - ls
+      # Build and push quarkusshop-common
+#      - cd quarkushop-commons
+#      - docker build -t YOUR_ECR_REPO_URL_COMMON:latest .
+#      - docker push YOUR_ECR_REPO_URL_COMMON:latest
 
-      # Build and push each app using app_name variable
-      - |
-        apps="quarkushop-customer,quarkushop-order,quarkushop-product,quarkushop-user"
-        IFS=',' read -ra app_array <<< "$apps"
-        for app_name in "${app_array[@]}"; do
-          cd "$app_name";
-          docker build -t "$ECR_REPO/$app_name:latest" -f "${!DOCKERFILE_$app_name}" .;
-          docker push "$ECR_REPO/$app_name:latest";
-          cd ..;
-        done
+      # Build and push quarkushop-customer
+      - cd ../quarkushop-customer
+      - docker build -t "$ECR_REPO/quarkushop-customer:latest" -f "$DOCKERFILE_customer"
+      - docker push "$ECR_REPO/quarkushop-customer:latest"
 
+      # Build and push quarkusshop-order
+      - cd ../quarkushop-order
+      - docker build -t "$ECR_REPO/quarkushop-order:latest" -f "$DOCKERFILE_order"
+      - docker push "$ECR_REPO/quarkushop-order:latest"
+
+      # Build and push quarkusshop-product
+      - cd ../quarkushop-product
+      - docker build -t "$ECR_REPO/quarkushop-product:latest" -f "$DOCKERFILE_product"
+      - docker push "$ECR_REPO/quarkushop-product:latest"
+
+      # Build and push quarkusshop-user
+      - cd ../quarkushop-user
+      - docker build -t "$ECR_REPO/quarkushop-user:latest" -f "$DOCKERFILE_user"
+      - docker push "$ECR_REPO/quarkushop-user:latest"
   post_build:
     commands:
       # Deploy to ECS
       - bash deploy-ecs.sh
-
 artifacts:
   files: []
