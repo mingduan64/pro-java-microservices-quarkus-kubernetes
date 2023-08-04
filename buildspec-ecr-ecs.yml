@@ -25,7 +25,7 @@ phases:
 
       # Build and push quarkushop-customer
       - cd quarkushop-customer
-      - docker build -t "$ECR_REPO/quarkushop-customer:latest" -f "$DOCKERFILE_customer"
+      - docker build -t "$ECR_REPO/quarkushop-customer:latest" -f "$DOCKERFILE_customer" .
       - docker push "$ECR_REPO/quarkushop-customer:latest"
 
       # Build and push quarkusshop-order
