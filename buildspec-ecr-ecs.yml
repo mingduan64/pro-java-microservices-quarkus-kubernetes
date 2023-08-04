@@ -21,8 +21,9 @@ phases:
 
       # Build and push each app using app_name variable
       - |
-        apps=("quarkushop-customer" "quarkushop-order" "quarkushop-product" "quarkushop-user")
-        for app_name in "${apps[@]}"; do
+        apps="quarkushop-customer,quarkushop-order,quarkushop-product,quarkushop-user"
+        IFS=',' read -ra app_array <<< "$apps"
+        for app_name in "${app_array[@]}"; do
           cd "$app_name";
           docker build -t "$ECR_REPO/$app_name:latest" -f "${!DOCKERFILE_$app_name}" .;
           docker push "$ECR_REPO/$app_name:latest";
