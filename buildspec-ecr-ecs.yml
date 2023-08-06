@@ -28,7 +28,7 @@ phases:
 
       # Build and push quarkushop-customer
       - cd quarkushop-customer
-      - mvn clean package -DskipTests
+      - mvn package -Pnative -Dquarkus.native.container-build=true
       - ls
       - mv ./src/main/docker/Dockerfile.native ./Dockerfile
       - ls
