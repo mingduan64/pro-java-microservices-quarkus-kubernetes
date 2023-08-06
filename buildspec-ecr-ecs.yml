@@ -23,7 +23,7 @@ phases:
 #      - docker build -t YOUR_ECR_REPO_URL_COMMON:latest .
 #      - docker push YOUR_ECR_REPO_URL_COMMON:latest
       - cd quarkushop-commons
-      - ./mvnw clean install
+      - mvn clean install
       - cd ..
 
       # Build and push quarkushop-customer
