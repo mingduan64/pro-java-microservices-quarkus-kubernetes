@@ -24,8 +24,8 @@ phases:
 #      - docker push YOUR_ECR_REPO_URL_COMMON:latest
 
       # Build and push quarkushop-customer
-      - ./mvnw package -Pnative -Dquarkus.native.container-build=true
       - cd quarkushop-customer
+      - ./mvnw package -Pnative -Dquarkus.native.container-build=true
       - mv ./src/main/docker/Dockerfile.native ./Dockerfile
       - ls
       - docker --help
