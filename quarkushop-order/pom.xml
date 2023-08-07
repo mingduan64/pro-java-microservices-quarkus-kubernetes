@@ -157,6 +157,14 @@
             <version>3.21.0</version> <!-- Add the appropriate version here -->
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-cdi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-hibernate-orm</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
