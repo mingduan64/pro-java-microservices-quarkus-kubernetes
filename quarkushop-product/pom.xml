@@ -12,13 +12,13 @@
         <java.version>17</java.version>
         <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
         <maven.compiler.target>17</maven.compiler.target>
-        <quarkus.platform.version>1.13.4.Final</quarkus.platform.version>
+        <quarkus.platform.version>3.2.3.Final</quarkus.platform.version>
         <maven.compiler.source>17</maven.compiler.source>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <quarkus.platform.artifact-id>quarkus-universe-bom</quarkus.platform.artifact-id>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.parameters>true</maven.compiler.parameters>
-        <quarkus-plugin.version>3.2.3.Final</quarkus-plugin.version>
+        <quarkus-plugin.version>3.0.0.Final</quarkus-plugin.version>
         <compiler-plugin.version>3.8.1</compiler-plugin.version>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
         <testcontainers.version>1.15.3</testcontainers.version>
@@ -138,6 +138,13 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-logging-gelf</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.21.0</version> <!-- Add the appropriate version here -->
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
