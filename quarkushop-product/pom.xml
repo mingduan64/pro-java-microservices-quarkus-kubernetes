@@ -72,10 +72,6 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-container-image-jib</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-jdbc-postgresql</artifactId>
         </dependency>
         <dependency>
@@ -145,6 +141,12 @@
             <artifactId>assertj-core</artifactId>
             <version>3.21.0</version> <!-- Add the appropriate version here -->
             <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.quarkus/quarkus-container-image-docker -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-container-image-docker</artifactId>
+            <version>3.2.3.Final</version>
         </dependency>
 
     </dependencies>

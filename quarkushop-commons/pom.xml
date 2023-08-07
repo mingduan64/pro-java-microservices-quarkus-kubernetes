@@ -99,14 +99,7 @@
             <artifactId>quarkus-test-common</artifactId>
             <version>${quarkus.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-cdi</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-hibernate-orm</artifactId>
-        </dependency>
+
 
     </dependencies>
 
